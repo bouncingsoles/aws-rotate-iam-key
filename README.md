@@ -26,7 +26,7 @@ Example Playbook
 - name: Rotate keys used in AWS for hosts that use api keys.
   hosts: xxxx
   roles:
-     - aws-rotate-iam-key
+     - bouncingsoles.aws-rotate-iam-key
 ```
 License
 -------
