@@ -1,7 +1,7 @@
 - debug: msg="Expiring key={{oldkey}} user={{iam_username}}."
 
 - name: Run command to expire the old key in use.  Sets previous key to inactive.
-  local_action: shell ../roles/aws-rotate-iam-key/scripts/aws_key_rotate.sh --expire {{iam_username}} {{oldkey}}
+  local_action: shell {{role_path}}/scripts/aws_key_rotate.sh --expire {{iam_username}} {{oldkey}}
   register: expireoutput
   delegate_to: localhost
   tags: expire

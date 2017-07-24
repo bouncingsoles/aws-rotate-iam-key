@@ -1,5 +1,5 @@
 - name: Run command to create a new key to use in rotation.
-  local_action: shell ../roles/aws-rotate-iam-key/scripts/aws_key_rotate.sh --create {{iam_username}}
+  local_action: shell {{role_path}}/scripts/aws_key_rotate.sh --create {{iam_username}}
   register: createkey
   delegate_to: localhost
   tags: create
