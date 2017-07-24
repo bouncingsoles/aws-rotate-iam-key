@@ -1,31 +1,33 @@
-Role Name
+aws-rotate-iam-key
 =========
 
-A brief description of the role goes here.
+This module will update the IAM key for a user account that you specify for Windows or Linux hosts.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+You ansible server must have the AWSCLI configured with the correct permissions.
 
 Role Variables
 --------------
+ iam_username = The username password key that you want to rotate.
+ aws_cli_user = The user on the machine that needs the IAM key rotated.  This would be the user that is using the key in question.
+ aws_region = AWS region in use, I.E. us-east-1
+ aws_cloudfront = true/false
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+aws-cli
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- name: Rotate the keys used in AWS for hosts that use api keys.
+  hosts: xxxx
+  roles:
+     - aws-rotate-iam-key
 
 License
 -------
@@ -35,4 +37,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Patrick Durante
