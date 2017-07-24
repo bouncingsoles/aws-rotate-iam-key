@@ -1,12 +1,2 @@
 ---
-- include: checkvars.yml
-- include: createkey.yml
-- include: linuxkeyfact.yml
-  when: ansible_system == "Linux"
-- include: winkeyfact.yml
-  when: ansible_system == "Win32NT"
-- include: linux_change_key.yml
-  when: ansible_system == "Linux"
-- include: win_change_key.yml
-  when: ansible_system == "Win32NT"
-- include: expirekey.yml
+# tasks file for aws-rotate-iam-key
