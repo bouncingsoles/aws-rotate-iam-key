@@ -1,0 +1,22 @@
+- name: LINUX-Return the current AWS access key id in use
+  command: aws configure get aws_access_key_id
+  register: linuxkey
+  become: yes
+  become_user: "{{aws_cli_user}}"
+  tags: linuxkey
+
+#- debug:
+#    var: linuxkey
+#  tags: linuxkey
+
+#- debug: msg="{{ linuxkey.stdout }}"
+#  tags: linuxkey
+
+- set_fact:
+    oldkey="{{linuxkey.stdout}}"
+  tags: linuxkey
+  no_log: True
+#  when: ansible_system == "Linux"
+
+#- debug: msg="OLDKEY= {{oldkey}}"
+#  tags: linuxkey

@@ -1,0 +1,21 @@
+- name: Run command to create a new key to use in rotation.
+  local_action: shell ../roles/aws-rotate-iam-key/scripts/aws_key_rotate.sh --create {{iam_username}}
+  register: createkey
+  delegate_to: localhost
+  tags: create
+
+#- debug:
+#    var: createkey
+#  tags: create
+
+#- debug: msg="{{ command.stdout_lines.4 }}"
+#- debug: msg="{{ command.stdout_lines.6 }}"
+
+- set_fact:
+    AWS_ACCESS_KEY_ID="{{ createkey.stdout_lines.2 }}"
+    AWS_SECRET_ACCESS_KEY="{{ createkey.stdout_lines.4 }}"
+  tags: create
+  no_log: True
+
+- debug: msg="Create new key for {{iam_username}} with KEYID={{ AWS_ACCESS_KEY_ID }} KEYSECRET={{ AWS_SECRET_ACCESS_KEY }} "
+  tags: create

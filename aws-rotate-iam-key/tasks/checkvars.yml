@@ -1,0 +1,9 @@
+#Code to prevent somebody from running ansible without setting up required variables.  Show be first item in every role.
+- name: Make sure all required variables are defined.
+  fail: msg="Variable '{{ item }}' is not defined in host or groupvars"
+  when: item not in vars
+  with_items:
+    - iam_username
+    - aws_cli_user
+    - aws_region
+    - aws_cloudfront

@@ -1,0 +1,24 @@
+#This sets the necessary enviorment variables for AWS servers.
+##Get the information of the custom facts.
+- name: WINDOWS-Set the enviroment variables for AWS servers to access S3.
+  win_environment:
+    state: present
+    name: AWS_ACCESS_KEY_ID
+    value: "{{AWS_ACCESS_KEY_ID}}"
+    level: machine
+
+- win_environment:
+    state: present
+    name: AWS_SECRET_ACCESS_KEY
+    value: "{{AWS_SECRET_ACCESS_KEY}}"
+    level: machine
+
+- name: Set the config file in c:\Users directory from template.
+  win_template:
+    src: templates/config.j2
+    dest: C:\Users\{{aws_cli_user}}\.aws\config
+
+- name: Set the credentials file in c:\Users directory from template.
+  win_template:
+    src: templates/credentials.j2
+    dest: C:\Users\{{aws_cli_user}}\.aws\credentials

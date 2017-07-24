@@ -1,0 +1,16 @@
+# Run powershell command to get the enviorment variable for AWS_ACCESS_KEY_ID
+- win_shell: "echo $Env:AWS_ACCESS_KEY_ID"
+  register: winenv
+  tags: winkey
+
+#- debug:
+#    var: winenv
+#  tags: debug
+
+#- debug: msg="{{ winenv.stdout_lines.0 }}"
+#  tags: debug
+
+- set_fact:
+    oldkey={{winenv.stdout_lines.0}}
+  tags: winkey
+  no_log: True
