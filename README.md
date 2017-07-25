@@ -1,23 +1,38 @@
 aws-rotate-iam-key
 =========
-
 This module will update the IAM key for a user account that you specify for Windows or Linux hosts.
 
 Requirements
 ------------
-
-You ansible server must have the AWSCLI configured with the correct permissions.
+The awscli needs to be configured on the ansible server running the playbook.  Ensure that you have correct permissions to reset and generate new IAM api keys from the account that runs the ansible playbook.
 
 Role Variables
 --------------
- - iam_username = The username password key that you want to rotate.
- - aws_cli_user = The user on the machine that needs the IAM key rotated.  This would be the user that is using the key in question.
- - aws_region = AWS region in use, I.E. us-east-1
- - aws_cloudfront = true/false
+Please define the following variables in host_vars for your server.
+ - iam_username
+   -AWS account that is has an IAM API key generated.
+ - aws_cli_user
+   -The account on the OS that has aws CLI configured.
+ - aws_region
+   -AWS region in use, I.E. us-east-1
+ - aws_cloudfront
+   -Enter true/false if you need access to AWS Cloudfront cli commands.
+
+Example host_vars file:
+```sh
+iam_username: bouncingsoles  
+aws_cli_user: user1
+aws_region: us-east-1
+aws_cloudfront: true
+```
 
 Dependencies
 ------------
-aws-cli
+- aws-cli
+--Need to be configured on the ansible server running the playbook.
+--Correct permissions to reset and generate new IAM api keys.
+
+
 
 Example Playbook
 ----------------
