@@ -1,6 +1,6 @@
 aws-rotate-iam-key
 =========
-This module will update the IAM key for a user account that you specify for Windows or Linux hosts.
+This module will update the IAM key for a user account that you specify for Windows or Linux hosts.  It updated the enviroment variables on Windows servers, as well as updating the files in c:\Users\\{{aws_cli_user}}\.aws.  For linux severs it updates the account in /home/{{aws_cli_user}}/.aws
 
 Requirements
 ------------
@@ -10,13 +10,13 @@ Role Variables
 --------------
 Please define the following variables in host_vars for your server.
  - iam_username
-   -AWS account that is has an IAM API key generated.
+   - AWS account that is has an IAM API key generated.
  - aws_cli_user
-   -The account on the OS that has aws CLI configured.
+   - The account on the OS that has aws CLI configured.
  - aws_region
-   -AWS region in use, I.E. us-east-1
+   - AWS region in use, I.E. us-east-1
  - aws_cloudfront
-   -Enter true/false if you need access to AWS Cloudfront cli commands.
+   - Enter true/false if you need access to AWS Cloudfront cli commands.
 
 Example host_vars file:
 ```sh
