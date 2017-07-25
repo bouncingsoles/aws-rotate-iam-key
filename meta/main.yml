@@ -17,22 +17,6 @@ galaxy_info:
      versions:
      - 2012R2
 
-  categories:
-  - cloud
-  - cloud:ec2
-  - cloud:aws
-  #- cloud:rax
-  #- clustering
-  #- database
-  #- database:nosql
-  #- database:sql
-  #- development
-  #- monitoring
-  #- networking
-  #- packaging
-  #- system
-  - web
-
   galaxy_tags:
   - aws
   - iam
@@ -41,6 +25,9 @@ galaxy_info:
   - api
   - key
   - windows
+  - cloud
+  - ec2
+  - centos
 
 dependencies:
   - awscli
