@@ -17,7 +17,27 @@ galaxy_info:
      versions:
      - 2012R2
 
-  galaxy_tags: []
+  categories:
+  - cloud
+  - cloud:ec2
+  #- cloud:gce
+  #- cloud:rax
+  #- clustering
+  #- database
+  #- database:nosql
+  #- database:sql
+  #- development
+  #- monitoring
+  #- networking
+  #- packaging
+  #- system
+  - web
+
+  galaxy_tags:
+  - aws
+  - iam
+  - password
+  - rotate
 
 dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,

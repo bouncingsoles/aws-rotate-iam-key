@@ -1,6 +1,6 @@
 aws-rotate-iam-key
 =========
-This module will update the IAM key for a user account that you specify for Windows or Linux hosts.  It updated the enviroment variables on Windows servers, as well as updating the files in c:\Users\\{{aws_cli_user}}\.aws.  For linux severs it updates the account in /home/{{aws_cli_user}}/.aws
+This module will update the IAM api key for a user on Windows or Linux hosts.  It updates the enviroment variables on Windows servers, as well as the files in c:\Users\\{{aws_cli_user}}\.aws.  For linux severs it updates the account in /home/{{aws_cli_user}}/.aws
 
 Requirements
 ------------
@@ -29,8 +29,8 @@ aws_cloudfront: true
 Dependencies
 ------------
 - aws-cli
---Need to be configured on the ansible server running the playbook.
---Correct permissions to reset and generate new IAM api keys.
+-- Need to be configured on the ansible server running the playbook.
+-- Correct permissions to reset and generate new IAM api keys.
 
 
 
