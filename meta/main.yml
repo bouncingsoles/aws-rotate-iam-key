@@ -40,7 +40,6 @@ galaxy_info:
   - rotate
   - api
   - key
-  - ec2
   - windows
 
 dependencies:
