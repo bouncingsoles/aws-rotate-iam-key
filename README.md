@@ -32,8 +32,8 @@ aws_cloudfront: true
 Dependencies
 ------------
 - aws-cli
--- Need to be configured on the ansible server running the playbook.
--- Correct permissions to reset and generate new IAM api keys.
+ -- Need to be configured on the ansible server running the playbook.
+ -- Correct permissions to reset and generate new IAM api keys.
 
 
 
