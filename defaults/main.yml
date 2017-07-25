@@ -1,2 +1,6 @@
 ---
 # defaults file for aws-rotate-iam-key
+iam_username: XXXX
+aws_cli_user: XXXX
+aws_region: us-east-1
+aws_cloudfront: true 
