@@ -29,5 +29,4 @@ galaxy_info:
   - ec2
   - centos
 
-dependencies:
-  - awscli
+dependencies: []
