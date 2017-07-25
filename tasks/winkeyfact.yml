@@ -10,7 +10,8 @@
 #- debug: msg="{{ winenv.stdout_lines.0 }}"
 #  tags: debug
 
-- set_fact:
+- name: Set the fact for the key we will expire for Windows.
+  set_fact:
     oldkey={{winenv.stdout_lines.0}}
   tags: winkey
   no_log: True

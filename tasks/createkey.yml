@@ -11,7 +11,8 @@
 #- debug: msg="{{ command.stdout_lines.4 }}"
 #- debug: msg="{{ command.stdout_lines.6 }}"
 
-- set_fact:
+- name: Set fact for newly create AWS API ACCESS_KEY_ID and SECRET_ACCESS_KEY.
+  set_fact:
     AWS_ACCESS_KEY_ID="{{ createkey.stdout_lines.2 }}"
     AWS_SECRET_ACCESS_KEY="{{ createkey.stdout_lines.4 }}"
   tags: create

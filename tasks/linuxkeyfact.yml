@@ -5,7 +5,8 @@
   become_user: "{{aws_cli_user}}"
   tags: linuxkey
 
-- set_fact:
+- name: Set the fact for the key we will expire for linux.
+  set_fact:
     oldkey="{{linuxkey.stdout}}"
   tags: linuxkey
   no_log: True

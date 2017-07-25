@@ -7,7 +7,8 @@
     group: "{{aws_cli_user}}"
     mode: 0755
 
-- template:
+- name: Update the .aws/config file.
+  template:
     src: templates/config.j2
     dest: /home/{{aws_cli_user}}/.aws/config
     owner: "{{aws_cli_user}}"
@@ -15,7 +16,8 @@
     mode: 0644
   become: yes
 
-- template:
+- name: Update the .aws/credentials file.
+  template:
     src: templates/credentials.j2
     dest: /home/{{aws_cli_user}}/.aws/credentials
     owner: "{{aws_cli_user}}"

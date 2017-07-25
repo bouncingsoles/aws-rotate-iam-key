@@ -7,7 +7,8 @@
     value: "{{AWS_ACCESS_KEY_ID}}"
     level: machine
 
-- win_environment:
+- name: Set the AWS_SECRET_ACCESS_KEY enviroment variable.
+  win_environment:
     state: present
     name: AWS_SECRET_ACCESS_KEY
     value: "{{AWS_SECRET_ACCESS_KEY}}"
