@@ -5,18 +5,7 @@
   become_user: "{{aws_cli_user}}"
   tags: linuxkey
 
-#- debug:
-#    var: linuxkey
-#  tags: linuxkey
-
-#- debug: msg="{{ linuxkey.stdout }}"
-#  tags: linuxkey
-
 - set_fact:
     oldkey="{{linuxkey.stdout}}"
   tags: linuxkey
   no_log: True
-#  when: ansible_system == "Linux"
-
-#- debug: msg="OLDKEY= {{oldkey}}"
-#  tags: linuxkey

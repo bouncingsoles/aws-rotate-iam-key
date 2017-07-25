@@ -1,5 +1,3 @@
-#- pip:
-#    name: awscli
 - name: Update the file in the user directory that runs awscli
   become: yes
   file:
