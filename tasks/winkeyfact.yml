@@ -1,5 +1,6 @@
 # Run powershell command to get the enviorment variable for AWS_ACCESS_KEY_ID
-- win_shell: "echo $Env:AWS_ACCESS_KEY_ID"
+- name: Print the existing windows enviroment variable key to expire.
+  win_shell: "echo $Env:AWS_ACCESS_KEY_ID"
   register: winenv
   tags: winkey
 
