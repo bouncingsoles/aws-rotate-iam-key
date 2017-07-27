@@ -29,6 +29,8 @@ iam_username: bouncingsoles
 aws_cli_user: user1
 aws_region: us-east-1
 aws_cloudfront: true
+##Optional
+notify_service: httpd
 ```
 
 Dependencies
