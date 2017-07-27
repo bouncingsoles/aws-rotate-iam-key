@@ -14,6 +14,21 @@
     value: "{{AWS_SECRET_ACCESS_KEY}}"
     level: machine
 
+- name: Create .aws directory if it doesn't exist.
+  win_file:
+    path: C:\Users\{{aws_cli_user}}\.aws
+    state: directory
+
+- name: Touch the config files to make sure they are present.
+  win_file:
+    path: C:\Users\{{aws_cli_user}}\.aws\config
+    state: touch
+
+- name: Touch the credentials files to make sure they are present.
+  win_file:
+    path: C:\Users\{{aws_cli_user}}\.aws\credentials
+    state: touch
+
 - name: Set the config file in c:\Users directory from template.
   win_template:
     src: templates/config.j2
