@@ -6,7 +6,7 @@
     owner: "{{aws_cli_user}}"
     group: "{{aws_cli_user}}"
     mode: 0755
-  when: aws_cli_user not "root"
+  when: aws_cli_user != "root"
 
 - name: Update the root .aws file in /root that runs awscli.
   become: yes
@@ -26,7 +26,7 @@
     group: "{{aws_cli_user}}"
     mode: 0644
   become: yes
-  when: aws_cli_user not "root"
+  when: aws_cli_user != "root"
 
 - name: Update the .aws/config file for root.
   template:
@@ -46,7 +46,7 @@
     group: "{{aws_cli_user}}"
     mode: 0644
   become: yes
-  when: aws_cli_user not "root"
+  when: aws_cli_user != "root"
 
 - name: Update the roots .aws/credentials file.
   template:
