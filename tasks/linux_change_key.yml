@@ -36,3 +36,26 @@
     group: "{{aws_cli_user}}"
     mode: 0644
   become: yes
+
+- name: Make sure our ENV file is present.
+  file:
+    path: '/etc/profile.d/{{aws_cli_user}}.sh'
+    owner: root
+    group: root
+    mode: 0644
+    state: touch
+  become: yes
+
+- name: Make sure our key is in the users ENV.
+  blockinfile:
+    path: '/etc/profile.d/{{aws_cli_user}}.sh'
+    block: |
+      AWS_ACCESS_KEY_ID="{{AWS_ACCESS_KEY_ID}}"
+      aws_access_key_id="{{AWS_ACCESS_KEY_ID}}"
+      AWS_SECRET_ACCESS_KEY="{{AWS_SECRET_ACCESS_KEY}}"
+      aws_secret_access_key="{{AWS_SECRET_ACCESS_KEY}}"
+      export AWS_ACCESS_KEY_ID
+      export aws_access_key_id
+      export AWS_SECRET_ACCESS_KEY
+      export aws_secret_access_key
+  become: yes
