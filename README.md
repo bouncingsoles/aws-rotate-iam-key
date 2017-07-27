@@ -20,6 +20,8 @@ Please define the following variables in host_vars for your server.
    - AWS region in use, I.E. us-east-1
  - aws_cloudfront
    - Enter true/false if you need access to AWS Cloudfront cli commands.
+ - notify_service (OPTIONAL)
+   - Only needed if you need to restart a service after key is rotated.
 
 Example host_vars file:
 ```sh

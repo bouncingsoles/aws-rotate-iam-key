@@ -59,3 +59,10 @@
       export AWS_SECRET_ACCESS_KEY
       export aws_secret_access_key
   become: yes
+
+- name: Restart "{{notify_service}}" because the variable is set and this service relies on AWS.
+  service:
+    name: "{{notify_service}}"
+    state: restarted
+  when: notify_service is defined
+  become: yes

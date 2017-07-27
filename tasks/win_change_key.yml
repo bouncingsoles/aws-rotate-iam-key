@@ -38,3 +38,9 @@
   win_template:
     src: templates/credentials.j2
     dest: C:\Users\{{aws_cli_user}}\.aws\credentials
+
+- name: Restart "{{notify_service}}" because the variable is set and this service relies on AWS.
+  win_service:
+    name: "{{notify_service}}"
+    state: restarted
+  when: notify_service is defined
