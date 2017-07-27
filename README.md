@@ -3,7 +3,7 @@ aws-rotate-iam-key
 This module will rotate the aws iam api key for supplied {{iam_username}} variable set for Windows or Linux.  It uses the awscli commands to create a new key, and then updates the key on the server.  A requirement is the {{iam_username}} only has 1 active key, or the 2nd key is set to INACTIVE.  It creates a new key when there is only 1.  If there are 2 active keys (max allowed on aws account) the playbook will fail.  The playbook will delete an inactive key to make room on the account supplied in {{iam_username}}.  
 
 - Windows credentials location: C:\Users\\{{aws_cli_user}}\.aws
-- Linux credentials are in /home/{{aws_cli_user}}/.aws
+- Linux credentials are in determined from the ENV of {{aws_cli_user}} home directory.
 
 Requirements
 ------------
