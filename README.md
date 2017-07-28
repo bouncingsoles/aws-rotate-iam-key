@@ -22,6 +22,8 @@ Please define the following variables in host_vars for your server.
    - Enter true/false if you need access to AWS Cloudfront cli commands.
  - notify_service (OPTIONAL)
    - Only needed if you need to restart a service after key is rotated.
+ - set_environment_vars
+   - Set to Yes or No.  AWS API key and secret will be set in environment variables for the server. (potential security risk)
 
 Example host_vars file:
 ```sh
@@ -31,6 +33,7 @@ aws_region: us-east-1
 aws_cloudfront: true
 ##Optional
 notify_service: httpd
+set_environment_vars: "Yes"
 ```
 
 Dependencies
