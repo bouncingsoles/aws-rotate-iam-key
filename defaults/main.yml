@@ -3,4 +3,7 @@
 iam_username: XXXX
 aws_cli_user: XXXX
 aws_region: us-east-1
-aws_cloudfront: true 
+aws_cloudfront: true
+##Option variables below that don't need to be set
+#notify_service: httpd
+#set_environment_vars: "No"
