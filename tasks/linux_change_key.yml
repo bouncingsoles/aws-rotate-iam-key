@@ -45,6 +45,7 @@
     mode: 0644
     state: touch
   become: yes
+  when: (set_environment_vars is defined and set_environment_vars == "yes" or set_environment_vars == "Yes")
 
 - name: Make sure our key is in the users ENV.
   blockinfile:
@@ -59,6 +60,7 @@
       export AWS_SECRET_ACCESS_KEY
       export aws_secret_access_key
   become: yes
+  when: (set_environment_vars is defined and set_environment_vars == "yes" or set_environment_vars == "Yes")
 
 - name: Restart "{{notify_service}}" because the variable is set and this service relies on AWS.
   service:
