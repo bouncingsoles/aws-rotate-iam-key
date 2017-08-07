@@ -10,3 +10,4 @@
     oldkey="{{linuxkey.stdout}}"
   tags: linuxkey
   no_log: True
+  ignore_errors: yes
