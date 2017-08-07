@@ -11,3 +11,7 @@
   tags: linuxkey
   no_log: True
   ignore_errors: yes
+
+- debug:
+    msg: "WARNING: I could not determine the ID of the previous key.  Only a new key will be created.  No key will be expired."
+  when: linuxkey.stdout is undefined

@@ -19,4 +19,4 @@
 
 - debug:
     msg: "WARNING: I could not determine the ID of the previous key.  Only a new key will be created.  No key will be expired."
-  when: not winenv.stdout_lines.0
+  when: winenv.stdout_lines.0 is undefined
