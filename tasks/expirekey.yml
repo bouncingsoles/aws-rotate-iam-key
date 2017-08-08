@@ -1,11 +1,15 @@
-- debug: msg="Expiring key={{oldkey}} user={{iam_username}}."
-
-- name: Run command to expire the old key in use.  Sets previous key to inactive.
+- name: Run command to expire the key="{{oldkey}}" in use for user="{{iam_username}}".  Sets previous key to inactive.
   local_action: shell {{role_path}}/scripts/aws_key_rotate.sh --expire {{iam_username}} {{oldkey}}
   register: expireoutput
   delegate_to: localhost
   tags: expire
+  when: oldkey is defined
 
 - debug:
     var: expireoutput.stdout_lines
   tags: expire
+  when: oldkey is defined
+
+- debug:
+    msg: "I couldn't determine the old key for user={{iam_username}}.  This may have been a new system build."
+  when: oldkey is undefined
